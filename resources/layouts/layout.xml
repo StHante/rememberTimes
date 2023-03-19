@@ -1,0 +1,8 @@
+<layout id="MainLayout">
+    <label id="time5" x="center" y="0%"  text="--:--" font="Graphics.FONT_NUMBER_MEDIUM" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="time4" x="center" y="13%" text="--:--" font="Graphics.FONT_NUMBER_MEDIUM" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="time3" x="center" y="26%" text="--:--" font="Graphics.FONT_NUMBER_MEDIUM" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="time2" x="center" y="39%" text="--:--" font="Graphics.FONT_NUMBER_MEDIUM" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="time1" x="center" y="52%" text="--:--" font="Graphics.FONT_NUMBER_MEDIUM" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="timeCurrent" x="center" y="65%" text="--:--" font="Graphics.FONT_NUMBER_HOT" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+</layout>

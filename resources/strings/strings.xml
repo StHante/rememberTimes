@@ -1,0 +1,8 @@
+<strings>
+    <string id="AppName">Remember Times</string>
+
+    <string id="menuSaveCurrentTime">Save current time</string>
+    <string id="menuDeleteLastTime">Delete last time</string>
+    <string id="menuDeleteAllTimes">Delete all times</string>
+    <string id="menuCancel">Cancel</string>
+</strings>
