@@ -1,6 +1,6 @@
 <menu id="MainMenu">
-    <menu-item id="cancel" label="@Strings.menuCancel" />
     <menu-item id="saveCurrentTime" label="@Strings.menuSaveCurrentTime" />
     <menu-item id="deleteLastTime" label="@Strings.menuDeleteLastTime" />
     <menu-item id="deleteAllTimes" label="@Strings.menuDeleteAllTimes" />
+    <menu-item id="cancel" label="@Strings.menuCancel" />
 </menu>
