@@ -9,6 +9,10 @@ class rememberTimesApp extends Application.AppBase {
     var times = [] as Array<Moment>;
     var timesLabels = ["time5", "time4", "time3", "time2", "time1"];
 
+    var dcDimensions = new [2] as Array<Number>;
+
+    var customTime = Time.now();    
+
     function initialize() {               
         AppBase.initialize();
     }
@@ -58,6 +62,45 @@ class rememberTimesApp extends Application.AppBase {
         return [ new rememberTimesView(), new rememberTimesDelegate() ] as Array<Views or InputDelegates>;
     }
 
+        function getEntryFromEnd(array, index) {
+        return array[array.size() - index - 1];
+    }
+
+    function getLastEntry(array) {
+        return getEntryFromEnd(array, 0);
+    }
+
+    function min(a, b) {
+        if (a < b) {
+            return a;
+        }
+        return b;
+    }
+
+    function findBeginOfDay(moment as Moment) {
+        var gregInfo = Gregorian.info(moment, Time.FORMAT_SHORT);
+        return Gregorian.moment({:day=>gregInfo.day, :month=>gregInfo.month, :year=>gregInfo.year, :hour=>0, :min=>0, :sec=>0});
+    }
+
+    function numberOfDaysBefore(beginOfToday as Moment, moment as Moment) {
+        var beginOfMomentsDay = findBeginOfDay(moment);
+        var offsetToAvoidLeapSeconds = 1024;
+        var difference = beginOfToday.compare(beginOfMomentsDay);
+        if (difference > 0) {
+            difference += offsetToAvoidLeapSeconds;
+        } else {
+            difference -= offsetToAvoidLeapSeconds;
+        }
+        return difference / Gregorian.SECONDS_PER_DAY;
+    }
+
+    function setLabelFromMoment(label as Text, moment as Moment) {
+        //var systemTime = System.getClockTime();
+        //var offset = new Duration(systemTime.timeZoneOffset + systemTime.dst);
+        //var info = Gregorian.utcInfo(momdur.add(offset), Time.FORMAT_SHORT);
+        var info = Gregorian.info(moment, Time.FORMAT_SHORT);
+        label.setText(Lang.format("$1$:$2$", [info.hour, info.min.format("%02d")]));       
+    }
 }
 
 function getApp() as rememberTimesApp {

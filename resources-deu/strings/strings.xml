@@ -3,7 +3,11 @@
 
     <string id="menuTitle">Aktionen</string>
     <string id="menuSaveCurrentTime">Speichere aktuelle Zeit</string>
+    <string id="menuSaveCustomTime">Speichere eigene Zeit</string>
     <string id="menuDeleteLastTime">Lösche letzte Zeit</string>
     <string id="menuDeleteAllTimes">Lösche alle Zeiten</string>
     <string id="menuCancel">Abbrechen</string>
+
+    <string id="confirmDeleteLast">Die letzte Zeit löschen?</string>
+    <string id="confirmDeleteAll">WARNUNG! Wirklich alle Zeiten löschen?</string>    
 </strings>
