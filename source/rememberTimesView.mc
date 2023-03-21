@@ -30,40 +30,63 @@ class rememberTimesView extends WatchUi.View {
         return b;
     }
 
+    private function findBeginOfDay(moment as Moment) {
+        var gregInfo = Gregorian.info(moment, Time.FORMAT_SHORT);
+        return Gregorian.moment({:day=>gregInfo.day, :month=>gregInfo.month, :year=>gregInfo.year, :hour=>0, :min=>0, :sec=>0});
+    }
+
+    private function numberOfDaysBefore(beginOfToday as Moment, moment as Moment) {
+        var beginOfMomentsDay = findBeginOfDay(moment);
+        var offsetToAvoidLeapSeconds = new Duration(1024);
+        var difference = beginOfToday.add(offsetToAvoidLeapSeconds).subtract(beginOfMomentsDay);
+        return difference.value() / Gregorian.SECONDS_PER_DAY;
+
+    }
+
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
-        var nowInfo = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
-        var beginOfThisDay = Gregorian.moment({:day=>nowInfo.day, :month=>nowInfo.month, :year=>nowInfo.year, :hour=>0, :min=>0, :sec=>0});
+        var beginOfToday = findBeginOfDay(Time.now());
 
-        for (var counter = 0; counter < min(getApp().timesLabels.size(), getApp().times.size()); counter ++) {
-            var timeLabel = View.findDrawableById(getEntryFromEnd(getApp().timesLabels, counter)) as Text;
-            setLabelFromMoment(timeLabel, getEntryFromEnd(getApp().times, counter));
+        for (var counter = 0; counter < self.min(getApp().timesLabels.size(), getApp().times.size()); counter ++) {
+            var timesLabel = getEntryFromEnd(getApp().timesLabels, counter);
+            var time = getEntryFromEnd(getApp().times, counter); 
+
+            var timeLabel = View.findDrawableById(timesLabel) as Text;
+            setLabelFromMoment(timeLabel, time);
             
-            var timeDaysLabel = View.findDrawableById(format("$1$Days", [getEntryFromEnd(getApp().timesLabels, counter)])) as Text;            
-            if (beginOfThisDay.subtract(getEntryFromEnd(getApp().times, counter)).value() > Gregorian.SECONDS_PER_DAY) {
-                var daysOffset = beginOfThisDay.subtract(getEntryFromEnd(getApp().times, counter)).value() / Gregorian.SECONDS_PER_DAY;
-                timeDaysLabel.setText(format("-$1$d", [daysOffset]));
+            var differenceDays = numberOfDaysBefore(beginOfToday, time);
+            var timeDaysLabel = View.findDrawableById(format("$1$Days", [timesLabel])) as Text;
+
+            if (differenceDays != 0) {
+                timeDaysLabel.setText(format("$1$d", [-differenceDays]));
             } else {
                 timeDaysLabel.setText("");
             }
-
         }
         for (var counter = getApp().times.size(); counter < getApp().timesLabels.size(); counter ++) {
-            var timeLabel = View.findDrawableById(getEntryFromEnd(getApp().timesLabels, counter)) as Text;
-            timeLabel.setText("--:--");
+            var timesLabel = getEntryFromEnd(getApp().timesLabels, counter);
 
-            var timeDaysLabel = View.findDrawableById(format("$1$Days", [getEntryFromEnd(getApp().timesLabels, counter)])) as Text;            
+            var timeLabel = View.findDrawableById(timesLabel) as Text;
+            timeLabel.setText("--:--");
+            
+            var timeDaysLabel = View.findDrawableById(format("$1$Days", [timesLabel])) as Text;
+
             timeDaysLabel.setText("");
         }
 
         for (var counter = 1; counter < min(getApp().timesLabels.size(), getApp().times.size()); counter++) {
-            var timeExtraLabel = View.findDrawableById(format("$1$Extra", [getEntryFromEnd(getApp().timesLabels, counter)])) as Text;
-            setLabelFromDuration(timeExtraLabel, getEntryFromEnd(getApp().times, counter).subtract(getEntryFromEnd(getApp().times, counter-1)));
+            var timesLabel = getEntryFromEnd(getApp().timesLabels, counter);
+            var time = getEntryFromEnd(getApp().times, counter); 
+            var previousTime = getEntryFromEnd(getApp().times, counter-1);
+
+            var timeExtraLabel = View.findDrawableById(format("$1$Extra", [timesLabel])) as Text;
+            setLabelFromDuration(timeExtraLabel, time.subtract(previousTime));
         }
         for (var counter = getApp().times.size(); counter < getApp().timesLabels.size(); counter++) {
-            var timeExtraLabel = View.findDrawableById(format("$1$Extra", [getEntryFromEnd(getApp().timesLabels, counter)])) as Text;
+            var timesLabel = getEntryFromEnd(getApp().timesLabels, counter);            
+            var timeExtraLabel = View.findDrawableById(format("$1$Extra", [timesLabel])) as Text;
             timeExtraLabel.setText("");
         }
     }

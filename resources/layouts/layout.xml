@@ -12,9 +12,9 @@
     <label id="time2Extra" x="62%" y="46%" text="" color="0x44FF44" font="Graphics.FONT_MEDIUM" justification="Graphics.TEXT_JUSTIFY_LEFT" />
     <label id="time1Extra" x="62%" y="59%" text="" color="0x44FF44" font="Graphics.FONT_MEDIUM" justification="Graphics.TEXT_JUSTIFY_LEFT" />
 
-    <label id="time5Days" text="-1d" x="23%" y="7%"  color="0xFF4444" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
-    <label id="time4Days" text="-1d" x="23%" y="20%" color="0xFF4444" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
-    <label id="time3Days" text="-1d" x="23%" y="33%" color="0xFF4444" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
-    <label id="time2Days" text="-1d" x="23%" y="46%" color="0xFF4444" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
-    <label id="time1Days" text="-1d" x="23%" y="59%" color="0xFF4444" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+    <label id="time5Days" text="-1d" x="22%" y="7%"  color="0xFF4444" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+    <label id="time4Days" text="-1d" x="22%" y="20%" color="0xFF4444" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+    <label id="time3Days" text="-1d" x="22%" y="33%" color="0xFF4444" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+    <label id="time2Days" text="-1d" x="22%" y="46%" color="0xFF4444" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+    <label id="time1Days" text="-1d" x="22%" y="59%" color="0xFF4444" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
 </layout>

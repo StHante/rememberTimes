@@ -1,6 +1,7 @@
 <strings>
     <string id="AppName">Erinner dich an Zeiten</string>
 
+    <string id="menuTitle">Aktionen</string>
     <string id="menuSaveCurrentTime">Speichere aktuelle Zeit</string>
     <string id="menuDeleteLastTime">Lösche letzte Zeit</string>
     <string id="menuDeleteAllTimes">Lösche alle Zeiten</string>
