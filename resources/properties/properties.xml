@@ -1,3 +1,4 @@
 <properties>
     <property id="appVersion" type="string">0.1.0</property>
+    <property id="ipToSend" type="string">192.168.178.31</property>
 </properties>

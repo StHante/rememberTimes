@@ -1,13 +1,22 @@
 <strings>
-    <string id="AppName">Erinner dich an Zeiten</string>
+    <string id="AppName">Merke Zeiten</string>
 
     <string id="menuTitle">Aktionen</string>
-    <string id="menuSaveCurrentTime">Speichere aktuelle Zeit</string>
-    <string id="menuSaveCustomTime">Speichere eigene Zeit</string>
+    <string id="menuSaveCurrentTime">Merke jetzt</string>
+    <string id="menuSaveCustomTime">Merke Zeit</string>
+    <string id="menuShowList">Zeige Liste</string>
+    <string id="menuSendList">Sende Liste an Server</string>
     <string id="menuDeleteLastTime">Lösche letzte Zeit</string>
     <string id="menuDeleteAllTimes">Lösche alle Zeiten</string>
     <string id="menuCancel">Abbrechen</string>
 
-    <string id="confirmDeleteLast">Die letzte Zeit löschen?</string>
-    <string id="confirmDeleteAll">WARNUNG! Wirklich alle Zeiten löschen?</string>    
+    <string id="listTitle">Alle Zeiten</string>
+
+    <string id="confirmDeleteLast">Letzte Zeit löschen?</string>
+    <string id="confirmDeleteAll">WARNUNG!\nWirklich alle Zeiten löschen?</string>
+
+    <string id="ipToSend">IP-Adresse zum Senden der Liste</string>
+    <string id="attemptSend">Versuche zu senden...</string>
+    <string id="successSend">Erfolg!</string>
+    <string id="failSend">Fehler beim Senden</string>
 </strings>

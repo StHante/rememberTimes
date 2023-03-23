@@ -43,11 +43,15 @@ class rememberTimesMenuDelegate extends WatchUi.MenuInputDelegate {
             getApp().addNewEntry(Time.now());
         } else if (item == :saveCustomTime) {
             WatchUi.pushView(new rememberTimesCustomTimeView(), new rememberTimesCustomTimeDelegate(), WatchUi.SLIDE_UP);           
+        } else if (item == :showList) {
+            WatchUi.pushView(new rememberTimesListMenu(), new rememberTimesListMenuDelegate(), WatchUi.SLIDE_UP);
+        } else if (item == :sendList) {
+           WatchUi.pushView(new rememberTimesSendView(), new rememberTimesSendDelegate(), WatchUi.SLIDE_UP);
         } else if (item == :deleteLastTime) {
-            WatchUi.pushView(new WatchUi.Confirmation(WatchUi.loadResource(Rez.Strings.confirmDeleteLast)), new ConfirmDeleteLastDelegate(), WatchUi.SLIDE_IMMEDIATE);
+            WatchUi.pushView(new WatchUi.Confirmation(WatchUi.loadResource(Rez.Strings.confirmDeleteLast)), new ConfirmDeleteLastDelegate(), WatchUi.SLIDE_UP);
         } else if (item == :deleteAllTimes) {
-            WatchUi.pushView(new WatchUi.Confirmation(WatchUi.loadResource(Rez.Strings.confirmDeleteAll)), new ConfirmDeleteAllDelegate(), WatchUi.SLIDE_IMMEDIATE);
+            WatchUi.pushView(new WatchUi.Confirmation(WatchUi.loadResource(Rez.Strings.confirmDeleteAll)), new ConfirmDeleteAllDelegate(), WatchUi.SLIDE_UP);
         }
-    }
+    }   
 
 }

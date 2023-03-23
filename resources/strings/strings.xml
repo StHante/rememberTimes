@@ -4,10 +4,19 @@
     <string id="menuTitle">Actions</string>
     <string id="menuSaveCurrentTime">Save current time</string>
     <string id="menuSaveCustomTime">Save custom time</string>
+    <string id="menuShowList">Show list</string>
+    <string id="menuSendList">Send list to server</string>
     <string id="menuDeleteLastTime">Delete last time</string>
     <string id="menuDeleteAllTimes">Delete all times</string>
     <string id="menuCancel">Cancel</string>
 
+    <string id="listTitle">Full list</string>
+
     <string id="confirmDeleteLast">Do you want to delete the last time?</string>
-    <string id="confirmDeleteAll">WARNING! Do you really want to delete all times?</string>
+    <string id="confirmDeleteAll">WARNING!\nDo you really want to delete all times?</string>
+
+    <string id="ipToSend">IP adress for sending the list</string>
+    <string id="attemptSend">Attempting to send...</string>
+    <string id="successSend">Success!</string>
+    <string id="failSend">Failed to send</string>
 </strings>

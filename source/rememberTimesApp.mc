@@ -8,6 +8,7 @@ class rememberTimesApp extends Application.AppBase {
 
     var times = [] as Array<Moment>;
     var timesLabels = ["time5", "time4", "time3", "time2", "time1"];
+    var timesListSymbols = [] as Array<Symbol>;
 
     var dcDimensions = new [2] as Array<Number>;
 
