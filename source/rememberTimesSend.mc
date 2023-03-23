@@ -45,7 +45,7 @@ class rememberTimesSendView extends WatchUi.View {
     function onLayout(dc) {
         setLayout(Rez.Layouts.SendLayout(dc));
         var message = findDrawableById("message") as Text;
-        message.setText(loadResource($.Rez.Strings.attemptSend));
+        message.setText(format("$1$\n$2$", [loadResource($.Rez.Strings.attemptSend), Properties.getValue("ipToSend")]));
     }
 
     // onShow() is called when this View is brought to the foreground

@@ -16,7 +16,7 @@
     <string id="confirmDeleteAll">WARNUNG!\nWirklich alle Zeiten löschen?</string>
 
     <string id="ipToSend">IP-Adresse zum Senden der Liste</string>
-    <string id="attemptSend">Versuche zu senden...</string>
+    <string id="attemptSend">Sende an</string>
     <string id="successSend">Erfolg!</string>
     <string id="failSend">Fehler beim Senden</string>
 </strings>

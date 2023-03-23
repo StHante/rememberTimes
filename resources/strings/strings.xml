@@ -16,7 +16,7 @@
     <string id="confirmDeleteAll">WARNING!\nDo you really want to delete all times?</string>
 
     <string id="ipToSend">IP adress for sending the list</string>
-    <string id="attemptSend">Attempting to send...</string>
+    <string id="attemptSend">Sending to</string>
     <string id="successSend">Success!</string>
     <string id="failSend">Failed to send</string>
 </strings>
