@@ -60,11 +60,18 @@ class JSONReceiverUI:
         self.root.protocol("WM_DELETE_WINDOW", self.on_close)
         self.ip_label = tk.Label(self.root, text='IP address:')
         self.ip_value = tk.Label(self.root, text=self.receiver.get_ip())
-        self.json_label = tk.Label(self.root, text='Received List:')
-        self.json_value = tk.Label(self.root, text='')
+        self.json_label = tk.Label(self.root, text='State:')
+        self.json_value = tk.Label(self.root, text='Started server')
+        self.save_button = tk.Button(self.root, text='Save As', command=self.save_as, state=tk.DISABLED)
+        self.stop_button = tk.Button(self.root, text='Quit', command=self.on_close)
         self.start_server()
-        #self.start_button = tk.Button(self.root, text='Start', command=self.start_server)
-        #self.stop_button = tk.Button(self.root, text='Stop', command=self.stop_server, state=tk.DISABLED)
+
+    def save_as(self):
+        f = tk.tkFileDialog.asksaveasfile(mode='w', defaultextension=".csv", initialfile="timeList.csv")
+        if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
+            return
+        f.write(self.list)
+        f.close()
 
     def start_server(self):
         self.receiver.start()
@@ -81,9 +88,10 @@ class JSONReceiverUI:
     def update_received_json(self):
         received_json = self.receiver.get_received_json()
         if received_json:
-            list = '\n'.join(received_json["timesList"])
-            self.json_value.configure(text=list)
-            pyperclip.copy(list)
+            self.list = '\n'.join(received_json["timesList"])
+            self.json_value.configure(text="Received a list")
+            self.start_button.configure(state=tk.NORMAL)
+            pyperclip.copy(self.list)
         self.root.after(500, self.update_received_json)
 
     def run(self):
@@ -92,8 +100,8 @@ class JSONReceiverUI:
         self.ip_value.grid(row=0, column=1, sticky='W')
         self.json_label.grid(row=1, column=0, sticky='W')
         self.json_value.grid(row=1, column=1, sticky='W')
-        #self.start_button.grid(row=2, column=0, sticky='W')
-        #self.stop_button.grid(row=2, column=1, sticky='W')
+        self.save_button.grid(row=2, column=0, sticky='W')
+        self.stop_button.grid(row=2, column=1, sticky='W')
         self.root.mainloop()
 
     def on_close(self):
@@ -104,3 +112,4 @@ class JSONReceiverUI:
 if __name__ == '__main__':
     ui = JSONReceiverUI()
     ui.run()
+    exit()
